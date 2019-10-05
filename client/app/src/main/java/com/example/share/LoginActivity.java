@@ -18,11 +18,8 @@ public class LoginActivity extends AppCompatActivity {
         CheckBox checkBox = (CheckBox)findViewById(R.id.checkBox);
         ImageButton loginButton = (ImageButton)findViewById(R.id.loginButton);
         ImageButton signupButton = (ImageButton)findViewById(R.id.signupButton);
-        ImageButton main_logo = (ImageButton)findViewById(R.id.main_logo);
         ImageView id_box =(ImageView) findViewById(R.id.id_box);
         ImageView pw_box =(ImageView) findViewById(R.id.pw_box);
-        ImageView id_icon =(ImageView) findViewById(R.id.id_icon);
-        ImageView pw_icon =(ImageView) findViewById(R.id.pw_icon);
         ImageButton google_button = (ImageButton)findViewById(R.id.google_button);
         findViewById(R.id.id_input).bringToFront();
         findViewById(R.id.pw_input).bringToFront();
