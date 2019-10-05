@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <EditText
+        android:id="@+id/id_input"
+        android:layout_width="226dp"
+        android:layout_height="46dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:hint="아이디"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_logo" />
+
+    <EditText
+        android:id="@+id/pw_input"
+        android:layout_width="226dp"
+        android:layout_height="44dp"
+        android:layout_below="@+id/id_input"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:hint="패스워드"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_input" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"
+        android:text="자동 로그인"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pw_input" />
+
+    <ImageButton
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="56dp"
+        android:padding="0dp"
+        android:src="@drawable/login_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pw_input" />
+
+    <ImageButton
+        android:id="@+id/signupButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:padding="0dp"
+        android:src="@drawable/signup_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pw_input" />
+
+    <ImageButton
+        android:id="@+id/main_logo"
+        android:layout_width="237dp"
+        android:layout_height="203dp"
+        android:layout_marginTop="28dp"
+        android:background="#00ffffff"
+        android:padding="0dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/id_box"
+        android:layout_width="305dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/id_box"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_input" />
+
+    <ImageView
+        android:id="@+id/pw_box"
+        android:layout_width="304dp"
+        android:layout_height="78dp"
+        android:src="@drawable/pw_box"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_logo" />
+
+    <ImageView
+        android:id="@+id/id_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/id_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/pw_box"
+        app:layout_constraintStart_toStartOf="@+id/pw_box" />
+
+    <ImageView
+        android:id="@+id/pw_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/pw_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/id_box"
+        app:layout_constraintStart_toStartOf="@+id/id_box"
+        app:layout_constraintTop_toTopOf="@+id/id_box"
+        app:layout_constraintVertical_bias="0.47" />
+
+    <ImageButton
+        android:id="@+id/google_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:padding="0dp"
+        android:src="@drawable/google_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+</android.support.constraint.ConstraintLayout>
