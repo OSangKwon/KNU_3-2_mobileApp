@@ -4,7 +4,6 @@ var crypto = require('crypto');
 var Schema = {};
 
 Schema.createSchema = function(mongoose) {
-	
 	// 스키마 정의
 	var UserSchema = mongoose.Schema({
 		email: {type: String, 'default':''}
