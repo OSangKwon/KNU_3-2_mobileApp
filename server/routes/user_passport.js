@@ -6,18 +6,12 @@ module.exports = function(router, passport) {
     // true
     router.route('/true').get(function(req, res) {
         console.log('/true 패스 요청됨.');
-        var data = {
-            value : 'true'  
-        }
-        res.send(data);
+        res.send("true");
     });
     //false
     router.route('/false').get(function(req, res) {
         console.log('/false 패스 요청됨.');
-        var data = {
-            value : 'false'  
-        }
-        res.send(data);
+        res.send("false");
     });
 
     // 로그인 인증
