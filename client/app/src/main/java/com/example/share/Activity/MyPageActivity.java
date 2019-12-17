@@ -20,6 +20,7 @@ public class MyPageActivity extends AppCompatActivity {
     private ImageButton review_button;
     private ImageButton qrcode_button;
     private ImageButton share_complete;
+    private ImageButton keyword_alarm;
     private TextView user_email;
     private TextView user_name;
 
@@ -36,6 +37,7 @@ public class MyPageActivity extends AppCompatActivity {
         review_button = (ImageButton)findViewById(R.id.share3);
         qrcode_button = (ImageButton)findViewById(R.id.share4);
         share_complete = (ImageButton)findViewById(R.id.share5);
+        keyword_alarm = (ImageButton)findViewById(R.id.share6);
 
 
         user_email = (TextView)findViewById(R.id.mypage_user_email);
@@ -88,6 +90,15 @@ public class MyPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MyPageActivity.this, CompleteActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        keyword_alarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyPageActivity.this, KeywordAlarmActivity.class);
                 startActivity(intent);
 
             }
