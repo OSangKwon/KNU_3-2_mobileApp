@@ -89,9 +89,9 @@ public class RegisterItemActivity extends AppCompatActivity {
     Uri selectedImageUri;
     String path;
 
-    int[] image = {R.drawable.select, R.drawable.select, R.drawable.select, R.drawable.select, R.drawable.select};
-    String[] text = {"장소", "공구", "음향기기", "의료", "유아용품", "기타"};
-    String[] text_send = {"place", "tool", "sound_equipment", "medical_equipment", "baby_goods", "etc"};
+    int[] image = {R.drawable.select, R.drawable.select, R.drawable.select, R.drawable.select, R.drawable.select, R.drawable.select};
+    String[] text = {"장소", "공구", "도서", "의료", "주방용품", "기타"};
+    String[] text_send = {"place", "tool", "book", "medical_equipment", "kitchen_utensil", "etc"};
 
     private String MongoDB_IP = "15.164.51.129";
     private int MongoDB_PORT = 27017;

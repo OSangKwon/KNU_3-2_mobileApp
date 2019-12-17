@@ -55,8 +55,8 @@ public class ItemListActivity extends AppCompatActivity {
     private LocationManager lm = null;
     private TextView page_header = null;
     private ArrayList<String> Mybucketlist;
-    String[] text = {"장소", "공구", "음향기기", "의료", "유아용품", "기타"};
-    String[] text_send = {"place", "tool", "sound_equipment", "medical_equipment", "baby_goods", "etc"};
+    String[] text = {"장소", "공구", "도서", "의료", "주방용품", "기타"};
+    String[] text_send = {"place", "tool", "book", "medical_equipment", "kitchen_utensil", "etc"};
     String UserEmail;
 
 
