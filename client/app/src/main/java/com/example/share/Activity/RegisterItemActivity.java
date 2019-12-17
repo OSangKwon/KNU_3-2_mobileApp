@@ -359,8 +359,6 @@ public class RegisterItemActivity extends AppCompatActivity {
         startActivityForResult(intent,GET_DATE_INFO);
     }
 
-
-
     public void selectLocation(View v)
     {
         Intent intent = new Intent(getApplicationContext(),MapsMarkerRegiActivity.class);
@@ -384,7 +382,7 @@ public class RegisterItemActivity extends AppCompatActivity {
             BitmapFactory.decodeStream(new FileInputStream(f), null, o);
 
             // The new size we want to scale to
-            final int REQUIRED_SIZE=550;
+            final int REQUIRED_SIZE=450;
 
             // Find the correct scale value. It should be the power of 2.
             int scale = 1;

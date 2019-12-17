@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
+import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -97,6 +98,7 @@ public class ItemListActivity extends AppCompatActivity {
     private String newContent;
     private String newOwner_email;
     private FromServerImage newImage = new FromServerImage();
+    private LruCache<String, Bitmap> mMemoryCache;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -398,6 +400,15 @@ public class ItemListActivity extends AppCompatActivity {
         return;
     }
 
+    public void addBitmapToMemoryCache( String key, Bitmap bitmap){
+        if( getBitmapFromMemCache( key) == null){
+            mMemoryCache.put( key, bitmap);
+        }
+    }
+    public Bitmap getBitmapFromMemCache( String key){
+        return mMemoryCache.get( key);
+    }
+
 }
 
 class ItemAdapter extends BaseAdapter{
@@ -405,8 +416,19 @@ class ItemAdapter extends BaseAdapter{
     private ArrayList<Item> items = null;
     private int count = 0;
     private FromServerImage newImage = new FromServerImage();
+    private LruCache<String, Bitmap> mMemoryCache;
 
     public ItemAdapter(Context context, ArrayList<Item> items) {
+
+        final int maxMemory = (int)(Runtime.getRuntime().maxMemory() / 1024);
+        final int cacheSize = maxMemory / 8;
+        mMemoryCache = new LruCache<String, Bitmap>( cacheSize){
+            @Override
+            protected int sizeOf( String key, Bitmap bitmap){
+                return bitmap.getByteCount() / 1024;
+            }
+        };
+
         this.items = items;
         this.count = items.size();
         this.inflater = (LayoutInflater)context.getSystemService(
@@ -438,7 +460,13 @@ class ItemAdapter extends BaseAdapter{
         SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
 
         ImageView image = (ImageView)convertView.findViewById(R.id.item_image);
-        image.setImageBitmap(newImage.getImage(item.getFilepath()));
+        if(getBitmapFromMemCache(item.getFilepath()) == null){
+            Bitmap temp = newImage.getImage(item.getFilepath());
+            addBitmapToMemoryCache(item.getFilepath(),temp);
+            image.setImageBitmap(getBitmapFromMemCache(item.getFilepath()));
+        }else{
+            image.setImageBitmap(getBitmapFromMemCache(item.getFilepath()));
+        }
 
         TextView name = (TextView)convertView.findViewById(R.id.item_name);
         name.setText(item.getItem_name());
@@ -455,6 +483,16 @@ class ItemAdapter extends BaseAdapter{
 
         return convertView;
 
+    }
+    public void addBitmapToMemoryCache( String key, Bitmap bitmap){
+        if( getBitmapFromMemCache( key) == null){
+            mMemoryCache.put( key, bitmap);
+        }
+
+    }
+
+    public Bitmap getBitmapFromMemCache( String key){
+        return mMemoryCache.get( key);
     }
 
 }
