@@ -26,6 +26,7 @@ public class MyPageActivity extends AppCompatActivity {
     private ImageButton qrcode_button;
     private ImageButton share_complete;
     private ImageButton keyword_alarm;
+    private ImageButton logout_button;
     private TextView user_email;
     private TextView user_name;
 
@@ -45,7 +46,7 @@ public class MyPageActivity extends AppCompatActivity {
         qrcode_button = (ImageButton)findViewById(R.id.share4);
         share_complete = (ImageButton)findViewById(R.id.share5);
         keyword_alarm = (ImageButton)findViewById(R.id.share6);
-
+        logout_button = (ImageButton)findViewById(R.id.Logout);
 
         user_email = (TextView)findViewById(R.id.mypage_user_email);
         user_name = (TextView)findViewById(R.id.mypage_user_name);
@@ -108,6 +109,23 @@ public class MyPageActivity extends AppCompatActivity {
                 Intent intent = new Intent(MyPageActivity.this, KeywordAlarmActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+        logout_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences pref = getSharedPreferences("pref", AppCompatActivity.MODE_PRIVATE);
+
+                SharedPreferences.Editor autoLogin_edit = pref.edit();
+
+                autoLogin_edit.putInt("autoLogin",0);
+                autoLogin_edit.commit();
+
+                Intent intent = new Intent(MyPageActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
 
