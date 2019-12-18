@@ -102,6 +102,8 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
 
+        app:itemIconTint="@android:color/white"
+        app:itemTextColor="#D8242E"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
