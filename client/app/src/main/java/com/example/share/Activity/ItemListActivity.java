@@ -218,7 +218,7 @@ public class ItemListActivity extends AppCompatActivity {
 
         //arraylist, adapter and gridview
         items_displaying = new ArrayList<Item>(items_from_db);
-        adapter = new ItemAdapter(this, items_from_db);
+        adapter = new ItemAdapter(this, items_displaying);
         gridView = (GridView) findViewById(R.id.item_grid_view);
         gridView.setAdapter(adapter);
 
@@ -314,8 +314,6 @@ public class ItemListActivity extends AppCompatActivity {
                 filterResult();
             }
         }
-
-
     }
     final LocationListener gpsLocationListener = new LocationListener() {
 
@@ -341,8 +339,8 @@ public class ItemListActivity extends AppCompatActivity {
                     i.setDistanceToUser(distance);
                     Log.d("MYGPSCHK",""+distance[0]);
                 }
-                Collections.sort(items_from_db);
-                adapter = new ItemAdapter(getApplicationContext(), items_from_db);
+                Collections.sort(items_displaying);
+                adapter = new ItemAdapter(getApplicationContext(), items_displaying);
                 Log.d("MYGPSCHK", "refresh"  );
                 gridView.setAdapter(adapter);
 
