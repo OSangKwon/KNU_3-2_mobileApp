@@ -116,13 +116,20 @@ public class KeywordAlarmActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, intent);
 
         if(requestCode == REQUEST_CODE_CONTENTS){
-            String contents = intent.getExtras().getString("contents");
-            // 아이템 추가.
-            items.add(contents);
+            try{
+                String contents = intent.getExtras().getString("contents");
+                items.add(contents);
 
-            // listview 갱신
-            adapter.notifyDataSetChanged();
-            Log.d("Result 내",contents);
+                // listview 갱신
+                adapter.notifyDataSetChanged();
+                Log.d("Result 내",contents);
+            }catch(Exception e){
+
+            }
+
+
+            // 아이템 추가.
+
         }
     }
 
