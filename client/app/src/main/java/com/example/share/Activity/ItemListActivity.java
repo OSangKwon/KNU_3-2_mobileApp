@@ -100,6 +100,8 @@ public class ItemListActivity extends AppCompatActivity {
     private FromServerImage newImage = new FromServerImage();
     private LruCache<String, Bitmap> mMemoryCache;
 
+    private boolean searchCount = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -223,7 +225,7 @@ public class ItemListActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Item item = items_from_db.get(position);
+                Item item = items_displaying.get(position);
 
                 Intent intent = new Intent(ItemListActivity.this, ItemDetailActivity.class);
                 intent.putExtra("item_object",item);
