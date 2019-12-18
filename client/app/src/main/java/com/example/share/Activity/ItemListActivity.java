@@ -217,8 +217,8 @@ public class ItemListActivity extends AppCompatActivity {
 
 
         //arraylist, adapter and gridview
+        adapter = new ItemAdapter(this, items_from_db);
         items_displaying = new ArrayList<Item>(items_from_db);
-        adapter = new ItemAdapter(this, items_displaying);
         gridView = (GridView) findViewById(R.id.item_grid_view);
         gridView.setAdapter(adapter);
 
